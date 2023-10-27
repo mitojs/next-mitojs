@@ -1,0 +1,24 @@
+{
+  "name": "new_monorepo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "engines": {
+    "node": ">=16.19.0",
+    "pnpm": ">=8.9.2"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cz-conventional-changelog": "^3.3.0",
+    "cz-git": "^1.7.1",
+    "nx": "^17.0.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-git"
+    }
+  }
+}
