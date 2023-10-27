@@ -1,0 +1,54 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "declaration": true,
+    "downlevelIteration": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    // strict check
+    "strictNullChecks": true,
+    "module": "esnext",
+    "moduleResolution": "Node",
+    "newLine": "LF",
+    "noEmitHelpers": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "preserveSymlinks": true,
+    "target": "ES2018",
+    "pretty": true,
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "esModuleInterop": true,
+    "stripInternal": true,
+    "resolveJsonModule": true,
+    "removeComments": true,
+    "importsNotUsedAsValues": "remove",
+    "lib": [
+      "DOM",
+      "DOM.Iterable",
+      "esnext"
+    ],
+    "typeRoots": [
+      "types",
+      "node_modules/@types"
+    ],
+    "useUnknownInCatchVariables": false,
+    "paths": {
+      "@mitojs/*": [
+        "../../packages/*/src"
+      ]
+    }
+  },
+  "include": [
+    "./packages"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/esm/**/*"
+  ]
+}

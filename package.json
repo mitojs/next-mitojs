@@ -3,18 +3,23 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "commit": "git add . && git cz"
+  },
   "engines": {
     "node": ">=16.19.0",
     "pnpm": ">=8.9.2"
   },
   "keywords": [],
-  "author": "",
+  "author": "cjinhuo",
   "license": "ISC",
   "devDependencies": {
+    "@commitlint/config-conventional": "^18.1.0",
     "cz-conventional-changelog": "^3.3.0",
     "cz-git": "^1.7.1",
-    "nx": "^17.0.0"
+    "eslint": "^8.52.0",
+    "nx": "^17.0.0",
+    "typescript": "^5.2.2"
   },
   "config": {
     "commitizen": {
