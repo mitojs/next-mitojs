@@ -1,7 +1,6 @@
 {
-  "name": "new_monorepo",
-  "version": "1.0.0",
-  "description": "",
+  "name": "mitojs",
+  "description": "a set of monitoring tools for JavaScript",
   "main": "index.js",
   "scripts": {
     "commit": "git add . && git cz"
@@ -12,13 +11,13 @@
   },
   "keywords": [],
   "author": "cjinhuo",
-  "license": "ISC",
+  "license": "Apache-2.0",
   "devDependencies": {
     "@commitlint/config-conventional": "^18.1.0",
     "cz-conventional-changelog": "^3.3.0",
     "cz-git": "^1.7.1",
     "eslint": "^8.52.0",
-    "nx": "^17.0.0",
+    "nx": "^17.0.2",
     "typescript": "^5.2.2"
   },
   "config": {

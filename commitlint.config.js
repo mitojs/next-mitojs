@@ -1,6 +1,6 @@
 // const packageJson = require('./package.json')
 
-const scopes = ['app']
+const scopes = ['app', 'architecture']
 
 module.exports = {
   extends: ['@commitlint/config-conventional'],
