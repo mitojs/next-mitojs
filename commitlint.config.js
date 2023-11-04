@@ -1,6 +1,16 @@
-// const packageJson = require('./package.json')
+const fg = require('fast-glob')
+const fs = require('fs')
+const path = require('path')
+const yaml = require('js-yaml')
 
-const scopes = ['app', 'architecture']
+const workspaceConfig = yaml.load(fs.readFileSync('./pnpm-workspace.yaml', 'utf8'))
+const scopes = workspaceConfig.packages
+  .reduce((acc, workspaceGlob) => {
+    const specificPackageDirName = fg.sync(workspaceGlob, { onlyDirectories: true }).map((filePath) => path.basename(filePath))
+    acc.push(...specificPackageDirName)
+    return acc
+  }, [])
+  .concat('architecture', 'changesets')
 
 module.exports = {
   extends: ['@commitlint/config-conventional'],
