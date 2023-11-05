@@ -14,3 +14,6 @@ analyzer.html
 
 packages/*/dist
 packages/*/node_modules
+
+# rust
+/target

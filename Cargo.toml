@@ -1,0 +1,6 @@
+
+[workspace]
+members = ['rust/rust-bindings']
+
+[profile.release]
+lto = true

@@ -26,5 +26,6 @@
     "commitizen": {
       "path": "node_modules/cz-git"
     }
-  }
+  },
+  "packageManager": "yarn@4.0.1"
 }
