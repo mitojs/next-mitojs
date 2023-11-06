@@ -12,16 +12,12 @@
     "module": "dist/index.esm.js",
     "types": "dist/index.d.ts"
   },
-  "files": [
-    "lib"
-  ],
+  "files": ["lib"],
   "scripts": {
     "esm": "tsc -b ./tsconfig.json"
   },
   "dependencies": {
     "rxjs": "^8.0.0-alpha.12"
   },
-  "devDependencies": {
-    "@mitojs/tsconfig": "workspace:*"
-  }
+  "devDependencies": {}
 }

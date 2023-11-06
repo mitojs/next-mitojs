@@ -19,7 +19,5 @@
   "dependencies": {
     "@mitojs/rust-bindings": "workspace:*"
   },
-  "devDependencies": {
-    "@mitojs/tsconfig": "workspace:*"
-  }
+  "devDependencies": {}
 }

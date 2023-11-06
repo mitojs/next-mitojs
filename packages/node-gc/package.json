@@ -12,16 +12,12 @@
     "module": "dist/index.esm.js",
     "types": "dist/index.d.ts"
   },
-  "files": [
-    "lib"
-  ],
+  "files": ["lib"],
   "scripts": {
-    "esm": "tsc -b ./tsconfig.json"
+    "esm": "tsc -b"
   },
   "dependencies": {
     "@mitojs/node-memory": "workspace:*"
   },
-  "devDependencies": {
-    "@mitojs/tsconfig": "workspace:*"
-  }
+  "devDependencies": {}
 }

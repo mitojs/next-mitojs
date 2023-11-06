@@ -30,12 +30,9 @@
     "removeComments": true,
     "importsNotUsedAsValues": "remove",
     "lib": ["DOM", "DOM.Iterable", "esnext"],
-    "typeRoots": ["types", "node_modules/@types"],
-    "useUnknownInCatchVariables": false,
-    "paths": {
-      "@mitojs/*": ["../../packages/*/src"]
-    }
+    "types": ["node", "bun-types"],
+    "useUnknownInCatchVariables": false
   },
-  "include": ["./packages"],
-  "exclude": ["node_modules", "**/esm/**/*"]
+  "include": ["./packages/**/*.ts", "./scripts/**/*.ts"],
+  "exclude": ["node_modules/**", "**/node_modules/**"]
 }

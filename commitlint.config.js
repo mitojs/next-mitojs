@@ -4,6 +4,7 @@ const path = require('path')
 const yaml = require('js-yaml')
 
 const workspaceConfig = yaml.load(fs.readFileSync('./pnpm-workspace.yaml', 'utf8'))
+console.log('workspaceConfig', workspaceConfig)
 const scopes = workspaceConfig.packages
   .reduce((acc, workspaceGlob) => {
     const specificPackageDirName = fg.sync(workspaceGlob, { onlyDirectories: true }).map((filePath) => path.basename(filePath))
@@ -17,7 +18,7 @@ module.exports = {
   rules: {
     'scope-enum': [2, 'always', scopes],
     'scope-min-length': [2, 'always', 1], // 暂时不生效？
-    'header-max-length': [1, 'always', 600]
+    'header-max-length': [1, 'always', 600],
   },
   prompt: {
     messages: {
@@ -30,7 +31,7 @@ module.exports = {
       footerPrefixesSelect: 'Select the ISSUES type of changeList by this change (optional):',
       customFooterPrefix: 'Input ISSUES prefix:',
       footer: 'List any ISSUES by this change. E.g.: #31, #34:\n',
-      confirmCommit: 'Are you sure you want to proceed with the commit above?'
+      confirmCommit: 'Are you sure you want to proceed with the commit above?',
     },
     types: [
       { value: 'feat', name: 'feat:     ✨  A new feature', emoji: ':sparkles:' },
@@ -40,23 +41,23 @@ module.exports = {
       {
         value: 'refactor',
         name: 'refactor: ♻️   A code change that neither fixes a bug nor adds a feature',
-        emoji: ':recycle:'
+        emoji: ':recycle:',
       },
       { value: 'perf', name: 'perf:     ⚡️  A code change that improves performance', emoji: ':zap:' },
       {
         value: 'test',
         name: 'test:     ✅  Adding missing tests or correcting existing tests',
-        emoji: ':white_check_mark:'
+        emoji: ':white_check_mark:',
       },
       {
         value: 'build',
         name: 'build:    📦️   Changes that affect the build system or external dependencies',
-        emoji: ':package:'
+        emoji: ':package:',
       },
       { value: 'ci', name: 'ci:       🎡  Changes to our CI configuration files and scripts', emoji: ':ferris_wheel:' },
       { value: 'chore', name: "chore:    🔨  Other changes that don't modify src or test files", emoji: ':hammer:' },
-      { value: 'revert', name: 'revert:   ⏪️  Reverts a previous commit', emoji: ':rewind:' }
+      { value: 'revert', name: 'revert:   ⏪️  Reverts a previous commit', emoji: ':rewind:' },
     ],
-    useEmoji: true
-  }
+    useEmoji: true,
+  },
 }

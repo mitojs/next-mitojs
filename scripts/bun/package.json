@@ -1,6 +1,7 @@
 {
-  "name": "@mitojs/node-memory",
+  "name": "@mitojs/bun",
   "version": "0.0.1",
+  "private": "true",
   "description": "node memory monitoring",
   "author": "cjinhuo",
   "license": "MIT",
@@ -12,10 +13,16 @@
     "module": "dist/index.esm.js",
     "types": "dist/index.d.ts"
   },
+  "bin": {
+    "bun_build": "bin/bun_build.sh"
+  },
   "files": ["lib"],
   "scripts": {
-    "esm": "tsc -b ./tsconfig.json"
+    "esm": "tsc -b ./tsconfig.json",
+    "bun-build": "bun ./src/index.ts"
   },
   "dependencies": {},
-  "devDependencies": {}
+  "devDependencies": {
+    "bun-types": "latest"
+  }
 }

@@ -1,6 +1,5 @@
 {
   "tabWidth": 2,
-  "parser": "typescript",
   "semi": false,
   "singleQuote": true,
   "jsxSingleQuote": true,
