@@ -3,29 +3,38 @@
   "description": "a set of monitoring tools for JavaScript",
   "main": "index.js",
   "scripts": {
-    "commit": "git add . && git cz"
+    "commit": "git add . && git cz",
+    "prepare": "husky install"
   },
   "engines": {
-    "node": ">=16.19.0",
+    "node": ">=18.18.0",
     "pnpm": ">=8.9.2"
   },
   "keywords": [],
   "author": "cjinhuo",
   "license": "Apache-2.0",
+  "lint-staged": {
+    "*.@(js|ts|tsx)": ["prettier --write"],
+    "*.@(yml|yaml)": ["prettier --parser yaml --write"],
+    "*.md": ["prettier --parser markdown --write"],
+    "*.json": ["prettier --parser json --write"]
+  },
   "devDependencies": {
     "@commitlint/config-conventional": "^18.1.0",
     "cz-conventional-changelog": "^3.3.0",
     "cz-git": "^1.7.1",
     "eslint": "^8.52.0",
     "fast-glob": "^3.3.1",
+    "husky": "^8.0.3",
     "js-yaml": "^4.1.0",
+    "lint-staged": "^15.0.2",
     "nx": "^17.0.2",
+    "prettier": "^3.0.3",
     "typescript": "^5.2.2"
   },
   "config": {
     "commitizen": {
       "path": "node_modules/cz-git"
     }
-  },
-  "packageManager": "yarn@4.0.1"
+  }
 }
