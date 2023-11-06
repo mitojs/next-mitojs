@@ -1,0 +1,25 @@
+{
+  "name": "@mitojs/node-process",
+  "version": "0.0.1",
+  "description": "node process monitoring",
+  "author": "cjinhuo",
+  "license": "MIT",
+  "main": "src/index.ts",
+  "module": "src/index.ts",
+  "types": "src/index.ts",
+  "publishConfig": {
+    "main": "dist/index.js",
+    "module": "dist/index.esm.js",
+    "types": "dist/index.d.ts"
+  },
+  "files": ["lib"],
+  "scripts": {
+    "esm": "tsc -b ./tsconfig.json"
+  },
+  "dependencies": {
+    "@mitojs/rust-bindings": "workspace:*"
+  },
+  "devDependencies": {
+    "@mitojs/tsconfig": "workspace:*"
+  }
+}

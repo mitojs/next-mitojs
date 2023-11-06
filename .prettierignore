@@ -1,4 +1,4 @@
 **/*.svg
-/dist
+**/esm
 /node_modules
 *.md

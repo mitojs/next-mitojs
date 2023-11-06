@@ -72,6 +72,16 @@ importers:
         specifier: workspace:*
         version: link:../../utils/tsconfig
 
+  packages/node-process:
+    dependencies:
+      '@mitojs/rust-bindings':
+        specifier: workspace:*
+        version: link:../../rust/rust-bindings
+    devDependencies:
+      '@mitojs/tsconfig':
+        specifier: workspace:*
+        version: link:../../utils/tsconfig
+
   packages/shared:
     dependencies:
       rxjs:

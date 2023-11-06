@@ -17,3 +17,6 @@ packages/*/node_modules
 
 # rust
 /target
+
+# typescript
+**/esm

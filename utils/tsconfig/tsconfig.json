@@ -3,6 +3,7 @@
     "allowSyntheticDefaultImports": true,
     "declaration": true,
     "downlevelIteration": true,
+    "isolatedModules": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "importHelpers": true,
@@ -28,27 +29,13 @@
     "resolveJsonModule": true,
     "removeComments": true,
     "importsNotUsedAsValues": "remove",
-    "lib": [
-      "DOM",
-      "DOM.Iterable",
-      "esnext"
-    ],
-    "typeRoots": [
-      "types",
-      "node_modules/@types"
-    ],
+    "lib": ["DOM", "DOM.Iterable", "esnext"],
+    "typeRoots": ["types", "node_modules/@types"],
     "useUnknownInCatchVariables": false,
     "paths": {
-      "@mitojs/*": [
-        "../../packages/*/src"
-      ]
+      "@mitojs/*": ["../../packages/*/src"]
     }
   },
-  "include": [
-    "./packages"
-  ],
-  "exclude": [
-    "node_modules",
-    "**/esm/**/*"
-  ]
+  "include": ["./packages"],
+  "exclude": ["node_modules", "**/esm/**/*"]
 }
