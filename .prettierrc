@@ -1,0 +1,13 @@
+{
+  "tabWidth": 2,
+  "parser": "typescript",
+  "semi": false,
+  "singleQuote": true,
+  "jsxSingleQuote": true,
+  "proseWrap": "never",
+  "bracketSpacing": true,
+  "trailingComma": "all",
+  "printWidth": 140,
+  "quoteProps": "as-needed",
+  "htmlWhitespaceSensitivity": "ignore"
+}
