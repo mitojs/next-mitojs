@@ -20,6 +20,7 @@
     "*.json": ["prettier --parser json --write"]
   },
   "devDependencies": {
+    "@commitlint/cli": "^18.2.0",
     "@commitlint/config-conventional": "^18.1.0",
     "cz-conventional-changelog": "^3.3.0",
     "cz-git": "^1.7.1",
