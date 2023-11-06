@@ -25,6 +25,7 @@ module.exports = {
   rules: {
     // set 'warn' for temporary. restore to 'error' after release 4.0
     '@typescript-eslint/no-unused-vars': 'warn',
+    '@typescript-eslint/ban-ts-comment': 'off',
     'linebreak-style': ['error', 'unix'],
     quotes: ['error', 'single'],
     semi: ['error', 'never'],

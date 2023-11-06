@@ -14,7 +14,7 @@
   },
   "files": ["lib"],
   "scripts": {
-    "esm": "tsc -b"
+    "build": "pnpm --filter @mitojs/bun run bun-build --target=node-gc"
   },
   "dependencies": {
     "@mitojs/node-memory": "workspace:*"

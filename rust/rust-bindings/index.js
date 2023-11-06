@@ -62,7 +62,9 @@ switch (platform) {
   case 'win32':
     switch (arch) {
       case 'x64':
-        localFileExisted = existsSync(join(__dirname, 'rust-bindings.win32-x64-msvc.node'))
+        localFileExisted = existsSync(
+          join(__dirname, 'rust-bindings.win32-x64-msvc.node')
+        )
         try {
           if (localFileExisted) {
             nativeBinding = require('./rust-bindings.win32-x64-msvc.node')
@@ -74,7 +76,9 @@ switch (platform) {
         }
         break
       case 'ia32':
-        localFileExisted = existsSync(join(__dirname, 'rust-bindings.win32-ia32-msvc.node'))
+        localFileExisted = existsSync(
+          join(__dirname, 'rust-bindings.win32-ia32-msvc.node')
+        )
         try {
           if (localFileExisted) {
             nativeBinding = require('./rust-bindings.win32-ia32-msvc.node')
@@ -86,8 +90,9 @@ switch (platform) {
         }
         break
       case 'arm64':
-        debugger
-        localFileExisted = existsSync(join(__dirname, 'rust-bindings.win32-arm64-msvc.node'))
+        localFileExisted = existsSync(
+          join(__dirname, 'rust-bindings.win32-arm64-msvc.node')
+        )
         try {
           if (localFileExisted) {
             nativeBinding = require('./rust-bindings.win32-arm64-msvc.node')
@@ -103,8 +108,6 @@ switch (platform) {
     }
     break
   case 'darwin':
-    debugger
-
     localFileExisted = existsSync(join(__dirname, 'rust-bindings.darwin-universal.node'))
     try {
       if (localFileExisted) {
@@ -128,7 +131,9 @@ switch (platform) {
         }
         break
       case 'arm64':
-        localFileExisted = existsSync(join(__dirname, 'rust-bindings.darwin-arm64.node'))
+        localFileExisted = existsSync(
+          join(__dirname, 'rust-bindings.darwin-arm64.node')
+        )
         try {
           if (localFileExisted) {
             nativeBinding = require('./rust-bindings.darwin-arm64.node')
@@ -162,7 +167,9 @@ switch (platform) {
     switch (arch) {
       case 'x64':
         if (isMusl()) {
-          localFileExisted = existsSync(join(__dirname, 'rust-bindings.linux-x64-musl.node'))
+          localFileExisted = existsSync(
+            join(__dirname, 'rust-bindings.linux-x64-musl.node')
+          )
           try {
             if (localFileExisted) {
               nativeBinding = require('./rust-bindings.linux-x64-musl.node')
@@ -173,7 +180,9 @@ switch (platform) {
             loadError = e
           }
         } else {
-          localFileExisted = existsSync(join(__dirname, 'rust-bindings.linux-x64-gnu.node'))
+          localFileExisted = existsSync(
+            join(__dirname, 'rust-bindings.linux-x64-gnu.node')
+          )
           try {
             if (localFileExisted) {
               nativeBinding = require('./rust-bindings.linux-x64-gnu.node')
@@ -187,7 +196,9 @@ switch (platform) {
         break
       case 'arm64':
         if (isMusl()) {
-          localFileExisted = existsSync(join(__dirname, 'rust-bindings.linux-arm64-musl.node'))
+          localFileExisted = existsSync(
+            join(__dirname, 'rust-bindings.linux-arm64-musl.node')
+          )
           try {
             if (localFileExisted) {
               nativeBinding = require('./rust-bindings.linux-arm64-musl.node')
@@ -198,7 +209,9 @@ switch (platform) {
             loadError = e
           }
         } else {
-          localFileExisted = existsSync(join(__dirname, 'rust-bindings.linux-arm64-gnu.node'))
+          localFileExisted = existsSync(
+            join(__dirname, 'rust-bindings.linux-arm64-gnu.node')
+          )
           try {
             if (localFileExisted) {
               nativeBinding = require('./rust-bindings.linux-arm64-gnu.node')
@@ -211,7 +224,9 @@ switch (platform) {
         }
         break
       case 'arm':
-        localFileExisted = existsSync(join(__dirname, 'rust-bindings.linux-arm-gnueabihf.node'))
+        localFileExisted = existsSync(
+          join(__dirname, 'rust-bindings.linux-arm-gnueabihf.node')
+        )
         try {
           if (localFileExisted) {
             nativeBinding = require('./rust-bindings.linux-arm-gnueabihf.node')

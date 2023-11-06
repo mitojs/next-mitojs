@@ -1,0 +1,26 @@
+{
+  "affected": {
+    "defaultBase": "master"
+  },
+  "workspaceLayout": {
+    "libsDir": "packages"
+  },
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "nx/tasks-runners/default",
+      "options": {
+        "parallel": 6
+      }
+    }
+  },
+  "targetDefaults": {
+    "build": {},
+    "esm": {
+      "dependsOn": []
+    },
+    "test": {
+      "dependsOn": [],
+      "outputs": []
+    }
+  }
+}

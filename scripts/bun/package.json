@@ -21,8 +21,8 @@
     "esm": "tsc -b ./tsconfig.json",
     "bun-build": "bun ./src/index.ts"
   },
-  "dependencies": {},
   "devDependencies": {
-    "bun-types": "latest"
+    "bun-types": "latest",
+    "minimist2": "^1.0.2"
   }
 }

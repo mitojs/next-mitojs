@@ -14,7 +14,7 @@
   },
   "files": ["lib"],
   "scripts": {
-    "esm": "tsc -b ./tsconfig.json"
+    "build": "pnpm --filter @mitojs/bun run bun-build --target=core"
   },
   "dependencies": {
     "rxjs": "^8.0.0-alpha.12"
