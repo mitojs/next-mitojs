@@ -1,7 +1,6 @@
 {
   "name": "mitojs",
   "description": "a set of monitoring tools for JavaScript",
-  "main": "index.js",
   "scripts": {
     "commit": "git add . && git cz",
     "prepare": "husky install"
@@ -10,7 +9,7 @@
     "node": ">=18.18.0",
     "pnpm": ">=8.9.2"
   },
-  "keywords": [],
+  "keywords": ["mitojs", "monitor", "monitoring", "h5", "web", "gather", "error", "collect", "browser", "miniPrograme", "nodejs"],
   "author": "cjinhuo",
   "license": "Apache-2.0",
   "lint-staged": {

@@ -4,7 +4,6 @@ const path = require('path')
 const yaml = require('js-yaml')
 
 const workspaceConfig = yaml.load(fs.readFileSync('./pnpm-workspace.yaml', 'utf8'))
-console.log('workspaceConfig', workspaceConfig)
 const scopes = workspaceConfig.packages
   .reduce((acc, workspaceGlob) => {
     const specificPackageDirName = fg.sync(workspaceGlob, { onlyDirectories: true }).map((filePath) => path.basename(filePath))
