@@ -16,7 +16,7 @@
   "bin": {
     "bun_build": "bin/bun_build.sh"
   },
-  "files": ["lib"],
+  "files": ["dist"],
   "scripts": {
     "esm": "tsc -b ./tsconfig.json",
     "bun-build": "bun ./src/index.ts"
