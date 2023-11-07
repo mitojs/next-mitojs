@@ -14,7 +14,7 @@
   },
   "files": ["dist"],
   "scripts": {
-    "build": "pnpm --filter @mitojs/bun run bun-build --target=shared"
+    "build": "pnpm --filter @mitojs/bun bun-build --target=shared"
   },
   "dependencies": {
     "rxjs": "^8.0.0-alpha.12"

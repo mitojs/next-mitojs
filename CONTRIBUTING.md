@@ -17,6 +17,12 @@ Make sure your Node >= v18.18.0, pnpm >= v8.9.2
 $ pnpm i
 ```
 
+### Verify
+run command for building '@mitojs/shared'
+```bash
+$ pnpm nx run @mitojs/shared:build
+```
+
 ## Debugger Locally
 
 Project's monorepo feature is based on the [Nx](https://github.com/nrwl/nx) tool, so most of the following commands include nx parameters.
@@ -24,6 +30,9 @@ Project's monorepo feature is based on the [Nx](https://github.com/nrwl/nx) tool
 ### Build Package
 
 ```bash
+# build single package
+$ pnpm nx <name>:test
+
 # build all packages
 $ pnpm nx run-many --nx-bail --target=build
 

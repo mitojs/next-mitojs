@@ -14,7 +14,7 @@
   },
   "files": ["dist"],
   "scripts": {
-    "build": "pnpm --filter @mitojs/bun run bun-build --target=node-process"
+    "build": "pnpm --filter @mitojs/bun bun-build --target=node-process"
   },
   "dependencies": {
     "@mitojs/rust-bindings": "workspace:*"

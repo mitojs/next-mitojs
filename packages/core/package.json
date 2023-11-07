@@ -14,10 +14,8 @@
   },
   "files": ["dist"],
   "scripts": {
-    "build": "pnpm --filter @mitojs/bun run bun-build --target=core"
+    "build": "pnpm --filter @mitojs/bun bun-build --target=core"
   },
-  "dependencies": {
-    "rxjs": "^8.0.0-alpha.12"
-  },
+  "dependencies": {},
   "devDependencies": {}
 }
