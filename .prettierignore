@@ -1,4 +1,6 @@
 **/*.svg
 **/dist
+**/esm
 /node_modules
 *.md
+tsconfig.tsbuildinfo

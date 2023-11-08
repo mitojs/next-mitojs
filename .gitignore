@@ -20,6 +20,7 @@ packages/*/node_modules
 
 # typescript
 **/esm
+**/tsconfig.tsbuildinfo
 
 #nx
 .nx

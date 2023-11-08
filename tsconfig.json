@@ -10,6 +10,7 @@
     // strict check
     "strictNullChecks": true,
     "module": "esnext",
+    "incremental": true,
     "moduleResolution": "Node",
     "newLine": "LF",
     "noEmitHelpers": true,
@@ -28,11 +29,12 @@
     "stripInternal": true,
     "resolveJsonModule": true,
     "removeComments": true,
+    "composite": true,
     "importsNotUsedAsValues": "remove",
     "lib": ["DOM", "DOM.Iterable", "esnext"],
     "types": ["node", "bun-types"],
     "useUnknownInCatchVariables": false
   },
-  "include": ["./packages/**/*.ts", "./scripts/**/*.ts"],
+  "include": ["./scripts/**/*.ts"],
   "exclude": ["node_modules/**", "**/node_modules/**"]
 }
