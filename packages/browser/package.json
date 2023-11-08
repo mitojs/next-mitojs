@@ -1,5 +1,5 @@
 {
-  "name": "@mitojs/core",
+  "name": "@mitojs/browser",
   "version": "0.0.1",
   "description": "node memory monitoring",
   "author": "cjinhuo",
