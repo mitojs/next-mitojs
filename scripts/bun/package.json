@@ -18,7 +18,6 @@
   },
   "files": ["dist"],
   "scripts": {
-    "esm": "tsc -b ./tsconfig.json",
     "bun-build": "bun ./src/index.ts"
   },
   "devDependencies": {
