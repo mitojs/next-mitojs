@@ -1,0 +1,24 @@
+{
+  "name": "@mitojs/types",
+  "version": "0.0.1",
+  "description": "node memory monitoring",
+  "author": "cjinhuo",
+  "license": "MIT",
+  "main": "src/index.ts",
+  "module": "src/index.ts",
+  "types": "src/index.ts",
+  "publishConfig": {
+    "main": "dist/index.js",
+    "module": "dist/index.esm.js",
+    "types": "dist/index.d.ts"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "esm": "tsc -b",
+    "build": "pnpm --filter @mitojs/bun bun-build --target=core"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}

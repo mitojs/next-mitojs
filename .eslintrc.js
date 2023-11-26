@@ -27,6 +27,7 @@ module.exports = {
     '@typescript-eslint/no-unused-vars': 'warn',
     '@typescript-eslint/ban-ts-comment': 'off',
     'linebreak-style': ['error', 'unix'],
+    '@typescript-eslint/no-explicit-any': 'off',
     quotes: ['error', 'single'],
     semi: ['error', 'never'],
   },
