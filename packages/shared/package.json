@@ -12,13 +12,13 @@
     "module": "dist/index.esm.js",
     "types": "dist/index.d.ts"
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "esm": "tsc -b",
     "build": "pnpm --filter @mitojs/bun bun-build --target=shared"
   },
-  "dependencies": {
-    "rxjs": "^8.0.0-alpha.12"
-  },
+  "dependencies": {},
   "devDependencies": {}
 }

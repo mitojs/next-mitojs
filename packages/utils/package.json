@@ -19,6 +19,8 @@
     "esm": "tsc -b",
     "build": "pnpm --filter @mitojs/bun bun-build --target=core"
   },
-  "dependencies": {},
-  "devDependencies": {}
+  "dependencies": {
+    "@mitojs/types": "workspace:^",
+    "rxjs": "^8.0.0-alpha.12"
+  }
 }

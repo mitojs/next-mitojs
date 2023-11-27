@@ -50,14 +50,14 @@ export function isEmptyObject(obj: any): boolean {
 }
 
 /**
- * 检测是否是空字符、undefined、null
+ * check if string is empty
  *
  * @export
  * @param {*} wat
  * @return {*}  {boolean}
  */
-export function isEmpty(wat: any): boolean {
-  return (isString(wat) && wat.trim() === '') || wat === undefined || wat === null
+export function isEmptyString(wat: any): boolean {
+  return isString(wat) && wat.trim() === ''
 }
 
 /**

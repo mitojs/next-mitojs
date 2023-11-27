@@ -134,7 +134,11 @@ importers:
 
   packages/core: {}
 
-  packages/fetch-instruction: {}
+  packages/fetch-instrumentation:
+    dependencies:
+      '@mitojs/utils':
+        specifier: workspace:^
+        version: link:../utils
 
   packages/node-gc:
     dependencies:
@@ -150,15 +154,18 @@ importers:
         specifier: workspace:*
         version: link:../../rust/rust-bindings
 
-  packages/shared:
-    dependencies:
-      rxjs:
-        specifier: ^8.0.0-alpha.12
-        version: 8.0.0-alpha.12
+  packages/shared: {}
 
   packages/types: {}
 
-  packages/utils: {}
+  packages/utils:
+    dependencies:
+      '@mitojs/types':
+        specifier: workspace:^
+        version: link:../types
+      rxjs:
+        specifier: ^8.0.0-alpha.12
+        version: 8.0.0-alpha.12
 
   rust/rust-bindings:
     devDependencies:

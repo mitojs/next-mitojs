@@ -1,5 +1,5 @@
 {
-  "name": "@mitojs/browser",
+  "name": "@mitojs/fetch-instrumentation",
   "version": "0.0.1",
   "description": "node memory monitoring",
   "author": "cjinhuo",
@@ -12,11 +12,14 @@
     "module": "dist/index.esm.js",
     "types": "dist/index.d.ts"
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "esm": "tsc -b",
     "build": "pnpm --filter @mitojs/bun bun-build --target=core"
   },
-  "dependencies": {},
-  "devDependencies": {}
+  "dependencies": {
+    "@mitojs/utils": "workspace:^"
+  }
 }
