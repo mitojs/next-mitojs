@@ -6,26 +6,28 @@ interface FetchInstrumentationOptions {
   ignoreUrls?: IgnoreList
 }
 
-export function createFetchStartInstrumentation(options: FetchInstrumentationOptions) {
+export function createFetchStartInstrumentation(options: FetchInstrumentationOptions = {}) {
   const subject = new Subject<HttpStartPayload>()
   const ignoreUrls = options.ignoreUrls
   hookFetch({
-    startCallback: subject.next,
+    startCallback: subject.next.bind(subject),
     isSkipWithUrl: (url: string) => {
       // todo 在 Subject 类中补充 subject.hasSubscriber()
-      return ignoreUrls ? isHittingByRegular(ignoreUrls, url) : true
+      return ignoreUrls && isHittingByRegular(ignoreUrls, url)
     },
   })
+  return subject
 }
 
-export function createFetchInstrumentation(options: FetchInstrumentationOptions) {
+export function createFetchInstrumentation(options: FetchInstrumentationOptions = {}) {
   const subject = new Subject<HttpPayload>()
   const ignoreUrls = options.ignoreUrls
   hookFetch({
-    endCallback: subject.next,
+    endCallback: subject.next.bind(subject),
     isSkipWithUrl: (url: string) => {
       // todo 在 Subject 类中补充 subject.hasSubscriber()
-      return ignoreUrls ? isHittingByRegular(ignoreUrls, url) : true
+      return ignoreUrls && isHittingByRegular(ignoreUrls, url)
     },
   })
+  return subject
 }

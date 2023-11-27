@@ -1,15 +1,15 @@
-import { isFunction, isObject } from './is'
+import { isFunction, isObjectByTypeof, isWindow } from './is'
 
 export function getDefaultBrowser(): undefined | Window {
-  if (typeof window === 'object' && isObject(window)) return window
+  if (typeof window === 'object' && isWindow(window)) return window
 }
 
 export function getDefaultDocument(): undefined | Document {
-  if (typeof document === 'object' && isObject(document)) return document
+  if (typeof document === 'object' && isObjectByTypeof(document)) return document
 }
 
 export function getDefaultPerformance(): undefined | Performance {
-  if (getDefaultBrowser() && isObject(window.performance)) return window.performance
+  if (getDefaultBrowser() && isObjectByTypeof(window.performance)) return window.performance
 }
 
 export function getDefaultXMLHttpRequest(): undefined | typeof XMLHttpRequest {

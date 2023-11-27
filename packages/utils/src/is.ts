@@ -6,6 +6,8 @@ export function isType(type: string) {
   }
 }
 
+export const isObjectByTypeof = (wat: unknown) => typeof wat === 'object'
+
 export const isNumber = isType(ToStringTypes.Number)
 export const isString = isType(ToStringTypes.String)
 export const isBoolean = isType(ToStringTypes.Boolean)

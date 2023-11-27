@@ -17,6 +17,7 @@ export interface HttpRequest {
 
 export interface HttpResponse {
   status: number
+  statusText: string
   duration: number
   headers: { [key: string]: string }
   body?: string

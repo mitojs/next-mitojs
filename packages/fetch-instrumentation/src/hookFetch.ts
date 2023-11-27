@@ -6,7 +6,7 @@ interface HookFetchOption {
   _window: Window | undefined
   startCallback: (data: HttpStartPayload) => void
   endCallback: (data: HttpPayload) => void
-  isSkipWithUrl: (url: string) => boolean
+  isSkipWithUrl: (url: string) => boolean | undefined
 }
 export function hookFetch({
   _window = getDefaultBrowser(),
@@ -23,8 +23,9 @@ export function hookFetch({
       const payload = normalizePayloadFromRequest(input, init)
       startCallback(payload)
       fetchPromise.then(
-        (res: Response) => {
-          endCallback(normalizePayloadFromResponse(payload, res))
+        async (res: Response) => {
+          const httpPayload = await normalizePayloadFromResponse(payload, res)
+          endCallback(httpPayload)
         },
         () => {
           // @ts-expect-error
@@ -34,7 +35,6 @@ export function hookFetch({
       return fetchPromise
     }
   })
-  // 传入 callback 拿到参数后调用 .next
 }
 
 function normalizeUrl(input: RequestInfo | URL): string {
@@ -58,14 +58,23 @@ function normalizePayloadFromRequest(input: RequestInfo | URL, init: RequestInit
   }
 }
 
-function normalizePayloadFromResponse(payload: HttpStartPayload, res: Response): HttpPayload {
+async function normalizePayloadFromResponse(payload: HttpStartPayload, res: Response): Promise<HttpPayload> {
   const timestamp = now()
+  let resBody = ''
+  try {
+    const resClone = res.clone()
+    resBody = await resClone.text()
+  } catch (_err) {
+    // do nothing
+  }
+
   return {
     ...payload,
     response: {
       status: res.status,
+      statusText: res.statusText,
       headers: mergeHeaders(res.headers),
-      body: res.body?.toString(),
+      body: resBody,
       timestamp,
       duration: timestamp - payload.request.timestamp,
     },
