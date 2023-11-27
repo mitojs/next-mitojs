@@ -33,9 +33,9 @@ function defineProperty(obj: AnyObject, name: string, value: unknown) {
   })
 }
 
-export function wrap(nodule: AnyObject, name: string, wrapper: Function) {
+export function wrap<T extends AnyObject, K extends keyof T>(nodule: T, name: K, wrapper: (origin: T[K], name: K) => T[K]) {
   if (!nodule || !nodule[name]) {
-    logger('no original function ' + name + ' to wrap')
+    logger('no original function ' + (name as string) + ' to wrap')
     return
   }
 
@@ -55,11 +55,12 @@ export function wrap(nodule: AnyObject, name: string, wrapper: Function) {
 
   defineProperty(wrapped, ORIGINAL, original)
   defineProperty(wrapped, UNWRAP, function () {
-    if (nodule[name] === wrapped) defineProperty(nodule, name, original)
+    if (nodule[name] === wrapped) defineProperty(nodule, name as string, original)
   })
   defineProperty(wrapped, WRAPPED, true)
 
-  defineProperty(nodule, name, wrapped)
+  // hook original function
+  defineProperty(nodule, name as string, wrapped)
   return wrapped
 }
 
@@ -79,7 +80,7 @@ export function massWrap(nodules: AnyObject[], names: string, wrapper: Function)
 
   nodules.forEach(function (nodule: AnyObject) {
     names.forEach(function (name) {
-      wrap(nodule, name, wrapper)
+      wrap(nodule, name, wrapper as any)
     })
   })
 }

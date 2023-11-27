@@ -1,7 +1,10 @@
-export interface HttpPayload {
+export interface HttpPayload extends HttpStartPayload {
+  response: HttpResponse
+}
+
+export interface HttpStartPayload {
   api: string
   request: HttpRequest
-  response: HttpResponse
 }
 
 export interface HttpRequest {

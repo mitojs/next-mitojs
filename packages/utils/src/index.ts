@@ -1,4 +1,7 @@
 export * from './is'
 export * from './string'
 export * from './shimmer'
+export * from './browser'
+export * from './date'
+export * from './operating'
 export * from 'rxjs'

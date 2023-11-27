@@ -1,4 +1,4 @@
-export const enum ToStringTypes {
+export enum ToStringTypes {
   String = 'String',
   Number = 'Number',
   Boolean = 'Boolean',
