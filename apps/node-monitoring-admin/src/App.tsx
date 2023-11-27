@@ -12,11 +12,15 @@ function App() {
     })
   }, [])
   const triggerFetch = () => {
-    window.fetch('https://lkqtjze7.fn.bytedance.net/get_publishing_table').then((res) => {
-      res.json().then((res) => {
-        console.log('res', res)
+    window
+      .fetch('https://lkqtjze7.fn.bytedance.net/get_publishing_table', {
+        method: 'post',
       })
-    })
+      .then((res) => {
+        res.json().then((res) => {
+          console.log('res', res)
+        })
+      })
   }
   return (
     <>
