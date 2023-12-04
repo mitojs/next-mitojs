@@ -12,7 +12,9 @@
     "module": "dist/index.esm.js",
     "types": "dist/index.d.ts"
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "esm": "tsc -b",
     "build": "pnpm --filter @mitojs/bun bun-build --target=node-gc"
@@ -20,5 +22,7 @@
   "dependencies": {
     "@mitojs/node-memory": "workspace:*"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@types/node": "^20.10.0"
+  }
 }

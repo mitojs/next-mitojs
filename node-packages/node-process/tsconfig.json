@@ -2,17 +2,15 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "rootDir": "src",
-    "outDir": "esm"
+    "outDir": "esm",
+    "types": [
+      "node"
+    ]
   },
   "include": [
     "src/**/*.ts"
   ],
   "references": [
-    {
-      "path": "../utils"
-    },
-    {
-      "path": "../core"
-    },
+    {}
   ]
 }

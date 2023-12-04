@@ -1,4 +1,4 @@
-import { getDefaultBrowser, getFullUrl, mergeHeaders, noop, now, wrap } from '@mitojs/utils'
+import { getDefaultBrowser, getFullUrl, mergeHeaders, noop, now, unwrap, wrap } from '@mitojs/utils'
 import { HttpPayload, HttpStartPayload } from '@mitojs/types'
 const FETCH = 'fetch'
 
@@ -35,6 +35,11 @@ export function hookFetch({
       return fetchPromise
     }
   })
+}
+
+export function unwrapFetch(_window = getDefaultBrowser()) {
+  if (!_window) return
+  unwrap(_window, FETCH)
 }
 
 function normalizeUrl(input: RequestInfo | URL): string {

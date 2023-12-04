@@ -1,5 +1,6 @@
 packages:
   - 'packages/*'
+  - 'node-packages/*'
   - 'apps/*'
   - 'components/*'
   - 'scripts/*'

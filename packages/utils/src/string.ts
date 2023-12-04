@@ -25,7 +25,7 @@ export function joinRegExp(patterns: IgnoreList) {
   return new RegExp(sources.join('|'), 'i')
 }
 
-export function isHittingByRegular(rules: (string | RegExp)[], url: string): boolean {
+export function isHittingByRegular(url: string, rules?: (string | RegExp)[]): boolean {
   const Rgx = getRegexp(rules || [])
   return !!Rgx && (Rgx as RegExp).test(url)
 }

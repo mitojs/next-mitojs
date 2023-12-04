@@ -1,0 +1,18 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "rootDir": "../node-gc/src",
+    "outDir": "../node-gc/esm",
+    "types": [
+      "node"
+    ]
+  },
+  "include": [
+    "../node-gc/src/**/*.ts"
+  ],
+  "references": [
+    {
+      "path": "../node-memory"
+    }
+  ]
+}
