@@ -1,19 +1,13 @@
 import { getDefaultBrowser, getFullUrl, mergeHeaders, noop, now, unwrap, wrap } from '@mitojs/utils'
 import { HttpPayload, HttpStartPayload } from '@mitojs/types'
-const FETCH = 'fetch'
+export const FETCH = 'fetch'
 
-interface HookFetchOption {
-  _window: Window | undefined
-  startCallback: (data: HttpStartPayload) => void
-  endCallback: (data: HttpPayload) => void
-  isSkipWithUrl: (url: string) => boolean | undefined
-}
-export function hookFetch({
-  _window = getDefaultBrowser(),
-  startCallback = noop,
-  endCallback = noop,
-  isSkipWithUrl = () => false,
-}: Partial<HookFetchOption>) {
+type HookFetchOption = (
+  _window: Window | undefined,
+  next: (data: HttpPayload) => void,
+  isSkipWithUrl: (url: string) => boolean | undefined,
+) => void
+export const hookFetch: HookFetchOption = (_window, next = noop, isSkipWithUrl = () => false) => {
   if (!_window) return
   wrap(_window, FETCH, (originalFetch) => {
     return (input, init = {}) => {
@@ -21,15 +15,15 @@ export function hookFetch({
       const url = normalizeUrl(input)
       if (isSkipWithUrl(url)) return fetchPromise
       const payload = normalizePayloadFromRequest(input, init)
-      startCallback(payload)
+      next(payload)
       fetchPromise.then(
         async (res: Response) => {
           const httpPayload = await normalizePayloadFromResponse(payload, res)
-          endCallback(httpPayload)
+          next(httpPayload)
         },
         () => {
           // @ts-expect-error
-          endCallback(undefined)
+          next(undefined)
         },
       )
       return fetchPromise
@@ -68,6 +62,7 @@ async function normalizePayloadFromResponse(payload: HttpStartPayload, res: Resp
   let resBody = ''
   try {
     const resClone = res.clone()
+    // only support text,not for stream,buffer or others
     resBody = await resClone.text()
   } catch (_err) {
     // do nothing

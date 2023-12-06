@@ -1,5 +1,5 @@
 export interface HttpPayload extends HttpStartPayload {
-  response: HttpResponse
+  response?: HttpResponse
 }
 
 export interface HttpStartPayload {

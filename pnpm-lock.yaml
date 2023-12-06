@@ -152,9 +152,35 @@ importers:
         specifier: workspace:*
         version: link:../../rust/rust-bindings
 
+  nodejs-packages/node-gc:
+    dependencies:
+      '@mitojs/node-memory':
+        specifier: workspace:*
+        version: link:../node-memory
+    devDependencies:
+      '@types/node':
+        specifier: ^20.10.0
+        version: 20.10.0
+
+  nodejs-packages/node-memory:
+    devDependencies:
+      '@types/node':
+        specifier: ^20.10.0
+        version: 20.10.0
+
+  nodejs-packages/node-process:
+    dependencies:
+      '@mitojs/rust-bindings':
+        specifier: workspace:*
+        version: link:../../rust/rust-bindings
+
   packages/browser: {}
 
-  packages/core: {}
+  packages/core:
+    dependencies:
+      '@mitojs/utils':
+        specifier: workspace:^
+        version: link:../utils
 
   packages/fetch-instrumentation:
     dependencies:

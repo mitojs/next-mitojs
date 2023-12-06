@@ -1,35 +1,22 @@
-import { hookFetch, unwrapFetch } from './hookFetch'
+import { FETCH, hookFetch, unwrapFetch } from './hookFetch'
 import { IgnoreList, ReactiveSubject, getDefaultBrowser, isHittingByRegular, noop } from '@mitojs/utils'
 import { HttpStartPayload, HttpPayload } from '@mitojs/types'
 import { getSubjectFromGlobal } from '@mitojs/core'
 interface FetchInstrumentationOptions {
   ignoreUrls?: IgnoreList
 }
-const FETCH_START = 'f_s'
-const FETCH_END = 'f_e'
-export function createFetchStartInstrumentation(options: FetchInstrumentationOptions = {}) {
-  let subject = getSubjectFromGlobal<HttpStartPayload>(FETCH_START, getDefaultBrowser())
+// todo 添加版本号
+const SUBJECT_KEY_FETCH = `${FETCH}_version`
+
+export function createFetchInstrumentation(options: FetchInstrumentationOptions = {}) {
+  let subject = getSubjectFromGlobal<HttpStartPayload>(SUBJECT_KEY_FETCH, getDefaultBrowser())
   if (subject) return subject
-  subject = new ReactiveSubject<HttpStartPayload>()
-  hookFetch({
-    startCallback: subject.next.bind(subject),
-    isSkipWithUrl: (url: string) => {
-      return !subject!.observed || isHittingByRegular(url, options.ignoreUrls)
-    },
+  subject = new ReactiveSubject<HttpPayload>()
+  hookFetch(getDefaultBrowser(), subject.next.bind(subject), (url: string) => {
+    return !subject!.observed || isHittingByRegular(url, options.ignoreUrls)
   })
   subject.addTearDown(unwrapFetch)
   return subject
 }
 
-export function createFetchInstrumentation(options: FetchInstrumentationOptions = {}) {
-  let subject = getSubjectFromGlobal<HttpStartPayload>(FETCH_END, getDefaultBrowser())
-  if (subject) return subject
-  subject = new ReactiveSubject<HttpPayload>()
-  hookFetch({
-    endCallback: subject.next.bind(subject),
-    isSkipWithUrl: (url: string) => {
-      return !subject!.observed || isHittingByRegular(url, options.ignoreUrls)
-    },
-  })
-  return subject
-}
+// 暴露 wrap fetch 的方法，并返回
