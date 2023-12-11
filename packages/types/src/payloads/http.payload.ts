@@ -1,5 +1,6 @@
 export interface HttpPayload extends HttpStartPayload {
   response?: HttpResponse
+  error?: unknown
 }
 
 export interface HttpStartPayload {

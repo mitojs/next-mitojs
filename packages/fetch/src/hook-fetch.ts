@@ -30,9 +30,9 @@ export const hookFetch: HookFetchOption = (_window, next = noop, isSkipWithUrl =
           const httpPayload = await normalizePayloadFromResponse(payload, res)
           next(httpPayload)
         },
-        () => {
-          // @ts-expect-error
-          next(undefined)
+        async (error: unknown) => {
+          const httpPayload = await normalizePayloadFromResponse(payload, {} as Response, error)
+          next(httpPayload)
         },
       )
       return fetchPromise
@@ -65,7 +65,7 @@ function normalizePayloadFromRequest(input: RequestInfo | URL, init: RequestInit
   }
 }
 
-async function normalizePayloadFromResponse(payload: HttpStartPayload, res: Response): Promise<HttpPayload> {
+async function normalizePayloadFromResponse(payload: HttpStartPayload, res: Response, error?: unknown): Promise<HttpPayload> {
   const timestamp = now()
   let resBody = ''
   try {
@@ -79,12 +79,13 @@ async function normalizePayloadFromResponse(payload: HttpStartPayload, res: Resp
   return {
     ...payload,
     response: {
-      status: res.status,
-      statusText: res.statusText,
+      status: res.status || 0,
+      statusText: res.statusText || '',
       headers: mergeHeaders(res.headers),
       body: resBody,
       timestamp,
       duration: timestamp - payload.request.timestamp,
     },
+    error,
   }
 }

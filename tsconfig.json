@@ -24,6 +24,7 @@
     "preserveSymlinks": true,
     "target": "ES2018",
     "pretty": true,
+    "inlineSources": true,
     "sourceMap": true,
     "noImplicitAny": true,
     "esModuleInterop": true,
@@ -36,9 +37,7 @@
     "types": [],
     "useUnknownInCatchVariables": false,
     "paths": {
-      // "@mitojs/*": [
-      //   "./packages/*"
-      // ]
+      "@mitojs/*": ["./packages/*"]
     }
   },
   "include": ["./scripts/**/*.ts"],
