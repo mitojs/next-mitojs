@@ -12,7 +12,7 @@
   "dependencies": {
     "@douyinfe/semi-ui": "^2.46.1",
     "@mitojs/browser": "workspace:^",
-    "@mitojs/fetch-instrumentation": "workspace:^",
+    "@mitojs/fetch": "workspace:^",
     "axios": "^1.6.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

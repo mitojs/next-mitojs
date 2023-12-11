@@ -4,15 +4,13 @@
     "rootDir": "src",
     "outDir": "esm"
   },
-  "include": [
-    "src/**/*.ts"
-  ],
+  "include": ["src/**/*.ts"],
   "references": [
     {
       "path": "../utils"
     },
     {
       "path": "../core"
-    },
+    }
   ]
 }

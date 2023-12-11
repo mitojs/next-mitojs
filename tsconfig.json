@@ -32,24 +32,15 @@
     "removeComments": true,
     "composite": true,
     "importsNotUsedAsValues": "remove",
-    "lib": [
-      "DOM",
-      "DOM.Iterable",
-      "esnext"
-    ],
+    "lib": ["DOM", "DOM.Iterable", "esnext"],
     "types": [],
     "useUnknownInCatchVariables": false,
     "paths": {
-      "@mitojs/*": [
-        "./packages/*"
-      ]
+      // "@mitojs/*": [
+      //   "./packages/*"
+      // ]
     }
   },
-  "include": [
-    "./scripts/**/*.ts"
-  ],
-  "exclude": [
-    "node_modules/**",
-    "**/node_modules/**"
-  ]
+  "include": ["./scripts/**/*.ts"],
+  "exclude": ["node_modules/**", "**/node_modules/**"]
 }

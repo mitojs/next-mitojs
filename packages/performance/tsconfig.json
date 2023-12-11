@@ -5,5 +5,12 @@
     "outDir": "esm"
   },
   "include": ["src/**/*.ts"],
-  "references": []
+  "references": [
+    {
+      "path": "../utils"
+    },
+    {
+      "path": "../core"
+    }
+  ]
 }

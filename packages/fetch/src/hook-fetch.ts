@@ -7,6 +7,15 @@ type HookFetchOption = (
   next: (data: HttpPayload) => void,
   isSkipWithUrl: (url: string) => boolean | undefined,
 ) => void
+
+/**
+ * Generates a hook for intercepting and modifying fetch requests.
+ *
+ * @param {_window} _window - The window object.
+ * @param {function} next - The callback function to be executed after each fetch request.
+ * @param {function} isSkipWithUrl - The function to determine if a URL should be skipped.
+ * @return {void}
+ */
 export const hookFetch: HookFetchOption = (_window, next = noop, isSkipWithUrl = () => false) => {
   if (!_window) return
   wrap(_window, FETCH, (originalFetch) => {
@@ -43,7 +52,6 @@ function normalizeUrl(input: RequestInfo | URL): string {
 function normalizePayloadFromRequest(input: RequestInfo | URL, init: RequestInit): HttpStartPayload {
   const methodFromParams = (init && init.method) || (input instanceof Request && input.method)
   const method = methodFromParams ? methodFromParams.toUpperCase() : 'GET'
-  init.body
   return {
     api: FETCH,
     request: {
