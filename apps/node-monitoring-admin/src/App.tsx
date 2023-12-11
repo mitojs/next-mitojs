@@ -13,7 +13,7 @@ function App() {
       }
     })
     createResourceInstrumentation()?.subscribe((data) => {
-      console.log('foreach resource timing', data)
+      console.log('resource timing', data)
     })
   }, [])
   const triggerFetch = () => {
@@ -23,7 +23,7 @@ function App() {
       })
       .then((res) => {
         res.text().then((res) => {
-          console.log('res', res)
+          // console.log('res')
         })
       })
   }
