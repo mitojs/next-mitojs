@@ -1,5 +1,5 @@
 {
-  "name": "@mitojs/fetch-instrumentation",
+  "name": "@mitojs/performance",
   "version": "0.0.1",
   "description": "node memory monitoring",
   "author": "cjinhuo",
@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "@mitojs/core": "workspace:^",
+    "@mitojs/types": "workspace:^",
     "@mitojs/utils": "workspace:^"
   }
 }

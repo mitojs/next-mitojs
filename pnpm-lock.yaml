@@ -73,6 +73,9 @@ importers:
       '@mitojs/fetch':
         specifier: workspace:^
         version: link:../../packages/fetch
+      '@mitojs/performance':
+        specifier: workspace:^
+        version: link:../../packages/performance
       axios:
         specifier: ^1.6.0
         version: 1.6.2
@@ -176,6 +179,9 @@ importers:
       '@mitojs/core':
         specifier: workspace:^
         version: link:../core
+      '@mitojs/types':
+        specifier: workspace:^
+        version: link:../types
       '@mitojs/utils':
         specifier: workspace:^
         version: link:../utils

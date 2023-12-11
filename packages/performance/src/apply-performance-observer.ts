@@ -1,3 +1,5 @@
+import { RumPerformanceEntryType } from './constant'
+
 export function applyPerformanceObserver<T extends PerformanceEntry = PerformanceEntry>(
   PerformanceObserver: typeof window.PerformanceObserver | undefined | null | false,
   callback: (entry: T, index: number, array: T[], performanceObserver: PerformanceObserver) => void,
@@ -37,4 +39,24 @@ export function applyPerformanceObserver<T extends PerformanceEntry = Performanc
   const disconnect = () => observer && observer.disconnect()
 
   return [observe, observeWithBuffered, disconnect] as const
+}
+
+export const observeRunPerformance = <T extends PerformanceEntry = PerformanceEntry>(
+  _PerformanceObserver: typeof window.PerformanceObserver,
+  pipe: (entry: T) => void,
+  types: RumPerformanceEntryType[],
+) => {
+  const [observe, , disconnect] = applyPerformanceObserver<T>(_PerformanceObserver, pipe)
+  observe(types)
+  return disconnect
+}
+
+export const observeRumPerformanceWithBuffer = <T extends PerformanceEntry = PerformanceEntry>(
+  PerformanceObserver: typeof window.PerformanceObserver,
+  pipe: (entry: T) => void,
+  type: RumPerformanceEntryType,
+) => {
+  const [, bufferedObserver, disconnect] = applyPerformanceObserver<T>(PerformanceObserver, pipe)
+  bufferedObserver(type)
+  return disconnect
 }

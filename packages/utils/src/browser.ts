@@ -12,6 +12,10 @@ export function getDefaultPerformance(): undefined | Performance {
   if (getDefaultBrowser() && isObjectByTypeof(window.performance)) return window.performance
 }
 
+export function getDefaultPerformanceObserver(): undefined | typeof PerformanceObserver {
+  if (getDefaultBrowser() && isFunction(window.PerformanceObserver)) return window.PerformanceObserver
+}
+
 export function getDefaultXMLHttpRequest(): undefined | typeof XMLHttpRequest {
   if (typeof XMLHttpRequest === 'function' && isFunction(XMLHttpRequest)) return XMLHttpRequest
 }

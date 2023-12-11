@@ -1,6 +1,7 @@
 import './App.css'
 import { Button } from '@douyinfe/semi-ui'
 import { createFetchInstrumentation } from '@mitojs/fetch'
+import { createResourceInstrumentation } from '@mitojs/performance'
 import { useEffect } from 'react'
 function App() {
   useEffect(() => {
@@ -11,14 +12,17 @@ function App() {
         console.log('fetch end payload', payload)
       }
     })
+    createResourceInstrumentation()?.subscribe((data) => {
+      console.log('foreach resource timing', data)
+    })
   }, [])
   const triggerFetch = () => {
     window
-      .fetch('https://generator3.swagger.io/openapi.json', {
+      .fetch('https://cjinhuo.github.io/', {
         method: 'get',
       })
       .then((res) => {
-        res.json().then((res) => {
+        res.text().then((res) => {
           console.log('res', res)
         })
       })

@@ -27,12 +27,10 @@ export const hookFetch: HookFetchOption = (_window, next = noop, isSkipWithUrl =
       next(payload)
       fetchPromise.then(
         async (res: Response) => {
-          const httpPayload = await normalizePayloadFromResponse(payload, res)
-          next(httpPayload)
+          next(await normalizePayloadFromResponse(payload, res))
         },
         async (error: unknown) => {
-          const httpPayload = await normalizePayloadFromResponse(payload, {} as Response, error)
-          next(httpPayload)
+          next(await normalizePayloadFromResponse(payload, {} as Response, error))
         },
       )
       return fetchPromise
