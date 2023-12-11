@@ -12,7 +12,7 @@ function App() {
         console.log('fetch end payload', payload)
       }
     })
-    createResourceInstrumentation()?.subscribe((data) => {
+    createResourceInstrumentation().subscribe((data) => {
       console.log('resource timing', data)
     })
   }, [])

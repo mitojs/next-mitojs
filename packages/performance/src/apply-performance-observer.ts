@@ -42,7 +42,7 @@ export function applyPerformanceObserver<T extends PerformanceEntry = Performanc
 }
 
 export const observeRunPerformance = <T extends PerformanceEntry = PerformanceEntry>(
-  _PerformanceObserver: typeof window.PerformanceObserver,
+  _PerformanceObserver: typeof window.PerformanceObserver | undefined | null | false,
   pipe: (entry: T) => void,
   types: RumPerformanceEntryType[],
 ) => {
@@ -52,7 +52,7 @@ export const observeRunPerformance = <T extends PerformanceEntry = PerformanceEn
 }
 
 export const observeRumPerformanceWithBuffer = <T extends PerformanceEntry = PerformanceEntry>(
-  PerformanceObserver: typeof window.PerformanceObserver,
+  PerformanceObserver: typeof window.PerformanceObserver | undefined | null | false,
   pipe: (entry: T) => void,
   type: RumPerformanceEntryType,
 ) => {
