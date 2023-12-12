@@ -153,6 +153,10 @@ importers:
       '@mitojs/rust-bindings':
         specifier: workspace:*
         version: link:../../rust/rust-bindings
+    devDependencies:
+      '@types/node':
+        specifier: ^20.10.0
+        version: 20.10.0
 
   packages/browser: {}
 
