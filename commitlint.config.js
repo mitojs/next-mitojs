@@ -16,7 +16,7 @@ module.exports = {
   extends: ['@commitlint/config-conventional'],
   rules: {
     'scope-enum': [2, 'always', scopes],
-    'scope-min-length': [2, 'always', 1], // 暂时不生效？
+    'scope-min-length': [2, 'always', 1],
     'header-max-length': [1, 'always', 600],
   },
   prompt: {
@@ -33,7 +33,7 @@ module.exports = {
       confirmCommit: 'Are you sure you want to proceed with the commit above?',
     },
     types: [
-      { value: 'feat', name: 'feat:     ✨  A new feature', emoji: ':sparkles:' },
+      { value: 'feat', name: 'feat:     ✨  A new feature', emoji: '✨' },
       { value: 'fix', name: 'fix:      🐛  A bug fix', emoji: ':bug:' },
       { value: 'docs', name: 'docs:     📝  Documentation only changes', emoji: ':memo:' },
       { value: 'style', name: 'style:    💄  Changes that do not affect the meaning of the code', emoji: ':lipstick:' },
@@ -54,7 +54,7 @@ module.exports = {
         emoji: ':package:',
       },
       { value: 'ci', name: 'ci:       🎡  Changes to our CI configuration files and scripts', emoji: ':ferris_wheel:' },
-      { value: 'chore', name: "chore:    🔨  Other changes that don't modify src or test files", emoji: ':hammer:' },
+      { value: 'chore', name: "chore:    🔨  Other changes that don't modify src or test files", emoji: '🔨' },
       { value: 'revert', name: 'revert:   ⏪️  Reverts a previous commit', emoji: ':rewind:' },
     ],
     useEmoji: true,
