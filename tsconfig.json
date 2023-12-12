@@ -35,11 +35,9 @@
     "importsNotUsedAsValues": "remove",
     "lib": ["DOM", "DOM.Iterable", "esnext"],
     "types": [],
-    "useUnknownInCatchVariables": false
-    // "paths": {
-    //   "@mitojs/*": ["./packages/*"]
-    // }
-  },
-  "include": ["./scripts/**/*.ts"],
-  "exclude": ["node_modules/**", "**/node_modules/**"]
+    "useUnknownInCatchVariables": false,
+    "paths": {
+      "@mitojs/*": ["./packages/*"]
+    }
+  }
 }

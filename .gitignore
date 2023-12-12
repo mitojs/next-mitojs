@@ -1,6 +1,6 @@
 .DS_Store
 node_modules
-
+**/node_modules/*
 # test
 coverage
 .idea
@@ -12,8 +12,8 @@ dist
 # analyzer
 analyzer.html
 
+# dist
 packages/*/dist
-packages/*/node_modules
 
 # rust
 /target
