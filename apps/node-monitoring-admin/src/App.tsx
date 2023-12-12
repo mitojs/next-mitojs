@@ -29,7 +29,6 @@ function App() {
   }
   return (
     <>
-      <Button>Vite + React</Button>
       <Button onClick={triggerFetch}>trigger fetch</Button>
     </>
   )
