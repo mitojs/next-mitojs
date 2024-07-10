@@ -2,7 +2,6 @@
 import { isFunction } from './is'
 import { AnyObject } from '@mitojs/types'
 
-// inspire by
 const WRAPPED = '__wrapped__'
 const UNWRAP = '__unwrap__'
 const ORIGINAL = '__original__'
@@ -53,6 +52,13 @@ export function wrap<T extends AnyObject, K extends keyof T>(nodule: T, name: K,
   const original = nodule[name]
   const wrapped = wrapper(original, name)
 
+  // copy enumerable properties
+  for (const enumerableKey in original) {
+    if (Object.prototype.hasOwnProperty.call(original, enumerableKey)) {
+      defineProperty(wrapped, enumerableKey, original[enumerableKey])
+    }
+  }
+
   defineProperty(wrapped, ORIGINAL, original)
   defineProperty(wrapped, UNWRAP, function () {
     if (nodule[name] === wrapped) defineProperty(nodule, name as string, original)
@@ -92,10 +98,10 @@ export function unwrap(nodule: AnyObject, name: string) {
     return
   }
 
-  if (!nodule[name].__unwrap) {
+  if (!nodule[name][UNWRAP]) {
     logger('no original to unwrap to -- has ' + name + ' already been unwrapped?')
   } else {
-    return nodule[name].__unwrap()
+    return nodule[name][UNWRAP]()
   }
 }
 
